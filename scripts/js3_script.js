@@ -33,8 +33,7 @@ function heeHawRecursive(startingNum, endPoint) {
         } else {
             console.log(startingNum);
         }
-        startingNum = startingNum + 1;
-        return heeHawRecursive(startingNum, endPoint);
+        return heeHawRecursive(++startingNum, endPoint);
     } return;
 }
 
