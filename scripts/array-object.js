@@ -25,7 +25,7 @@ function toObject(array) {
       }
   }
 
-    return "var result = " + JSON.stringify(obj); // return our desired HTML output String
+    return "var result = " + JSON.stringify(obj, null, 3); // return our desired HTML output String
 }
 
 let arr = [-1, 5, "cat", false, 10.2, true, "dog"];
