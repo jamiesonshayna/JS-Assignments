@@ -9,24 +9,24 @@ properties containing the array values, grouped by type.
  */
 
 function toObject(array) {
-  var dict = {};
+  let obj = {};
 
-  for(var i = 0; i < array.length; i++) {
-      var tempType = typeof array[i];
-      var tempName = tempType.toString()+"s";
+  // loop through our input to add keys and values to our object
+  for(let i = 0; i < array.length; i++) {
+      // get the current 'key' for our array[i] based on the value's type
+      let tempName = (typeof array[i]).toString() + "s";
 
-      if(dict.hasOwnProperty(tempName)) {
-          dict[tempName].push(array[i]);
-      } else {
-          dict[tempName] = [];
-          dict[tempName].push(array[i]);
+      // if the key exists, we add our next value to the array with the correct key
+      if(obj.hasOwnProperty(tempName)) {
+          obj[tempName].push(array[i]);
+      } else { // if the key doesn't exist we add it to our object with the first array value at array[i]
+          obj[tempName] = [];
+          obj[tempName].push(array[i]);
       }
   }
 
-    // make object that has left side of keys and right side of their arrays
-    //document.getElementById("output2").innerHTML = "var result = " + JSON.stringify(dict);
-    return "var result = " + JSON.stringify(dict);
+    return "var result = " + JSON.stringify(obj); // return our desired HTML output String
 }
 
 let arr = [-1, 5, "cat", false, 10.2, true, "dog"];
-document.getElementById("output").innerHTML = toObject(arr);
+document.getElementById("output").innerHTML = toObject(arr); // send back to HTML with function call
