@@ -24,7 +24,6 @@ function toObject(array) {
           obj[tempName].push(array[i]);
       }
   }
-
     return "var result = " + JSON.stringify(obj, null, 3); // return our desired HTML output String
 }
 
